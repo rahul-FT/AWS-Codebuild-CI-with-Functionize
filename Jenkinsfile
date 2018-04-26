@@ -1,9 +1,18 @@
 pipeline {
-    agent { docker { image 'node:9.11.1' } }
+    agent none
     stages {
-        stage('build') {
+        stage('Stage 1') {
+            agent { docker 'node:9.11.1' }
             steps {
-                sh 'echo From JenkinsFile'
+                echo 'Hello, From First Stage'
+                sh 'node --version'
+            }
+        }
+        stage('Stage 2') {
+            agent { docker 'node:9.11.1' }
+            steps {
+                echo 'Hello, From Second Stage'
+                sh 'node --version'
             }
         }
     }
