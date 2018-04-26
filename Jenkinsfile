@@ -5,7 +5,6 @@ pipeline {
             agent { docker 'ubuntu' }
             steps {
                 sh 'ls -al'
-                sh 'whoami'
                 sh 'apt-get update'
                 sh 'apt-get nodejs'
                 // sh './node_modules/gulp/bin/gulp.js lint-css'
