@@ -1,11 +1,12 @@
 pipeline {
     agent none
     stages {
-        stage('Stage 1') {
+        stage('lint-css') {
             agent { docker 'node:9.11.1' }
             steps {
-                echo 'Hello, From First Stage'
-                sh 'node --version'
+                sh 'ls -al'
+                sh 'npm install'
+                sh './node_modules/gulp/bin/gulp.js lint-css'
             }
         }
         stage('Stage 2') {
