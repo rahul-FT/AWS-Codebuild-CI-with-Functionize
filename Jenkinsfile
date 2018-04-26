@@ -2,10 +2,11 @@ pipeline {
     agent none
     stages {
         stage('lint-css') {
-            agent { docker 'node:9.11.1' }
+            agent { docker 'manala/lint-css' }
             steps {
                 sh 'ls -al'
-                sh 'sudo npm install'
+                sh 'npm install'
+                sh 'ls -al'
                 sh './node_modules/gulp/bin/gulp.js lint-css'
             }
         }
