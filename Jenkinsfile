@@ -5,6 +5,7 @@ pipeline {
             agent { docker 'node:9.11.1' }
             steps {
                 sh 'ls -al'
+                sh 'whoami'
                 sh 'npm install'
                 sh './node_modules/gulp/bin/gulp.js lint-css'
             }
