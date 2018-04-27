@@ -14,20 +14,20 @@ pipeline {
             }
         }
     }
-    // stages {
-    //     stage('lint-js') {
-    //       agent {
-    //           docker {
-    //             image 'node:9.11.1'
-    //             args  '-u root'
-    //           }
-    //       }
-    //         steps {
-    //             sh 'npm install'
-    //             sh './node_modules/gulp/bin/gulp.js lint-js'
-    //         }
-    //     }
-    // }
+    stages {
+        stage('lint-js') {
+          agent {
+              docker {
+                image 'node:9.11.1'
+                args  '-u root'
+              }
+          }
+            steps {
+                sh 'npm install'
+                sh './node_modules/gulp/bin/gulp.js lint-js'
+            }
+        }
+    }
     // stages {
     //     stage('Deploy-Staging') {
     //       agent {
