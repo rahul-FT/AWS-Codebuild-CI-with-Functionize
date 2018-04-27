@@ -2,11 +2,13 @@ pipeline {
     agent none
     stages {
         stage('lint-css') {
-            agent { docker 'ubuntu' }
+            agent { docker 'node:9.11.1' }
+            args '--privileged'
             steps {
                 sh 'ls -al'
-                sh 'apt-get update'
-                sh 'apt-get nodejs'
+                sh 'node --version'
+                sh 'npm --version'
+                sh 'yarn version'
                 // sh './node_modules/gulp/bin/gulp.js lint-css'
             }
         }
