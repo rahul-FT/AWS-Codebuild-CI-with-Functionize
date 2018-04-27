@@ -1,4 +1,5 @@
 pipeline {
+    def singleQuote = 'Single quote string to "demo" double quotes without backslash escape.'
     agent none
     // stages {
     //     stage('lint-css') {
@@ -43,7 +44,6 @@ pipeline {
     //     }
     // }
     stages {
-        def singleQuote = 'Single quote string to "demo" double quotes without backslash escape.'
         stage('Functionize-CLI') {
           agent {
               docker {
