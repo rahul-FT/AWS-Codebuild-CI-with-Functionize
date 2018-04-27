@@ -51,16 +51,11 @@ pipeline {
               }
           }
             steps {
-              // sh 'git clone https://functionize@bitbucket.org/functionize/functionizecli.git /opt/functionizecli'
-              dir ('/tmp') {
-                sh('git clone https://functionize@bitbucket.org/functionize/functionizecli.git')
-                sh ('ls -al')
-              }
-              // sh 'ls -al /opt/functionizecli'
-              // sh 'ls -al'
-              // sh 'npm install'
-              // sh 'npm install -g'
-              // sh 'ls -al'
+              sh 'git clone https://functionize@bitbucket.org/functionize/functionizecli.git /opt/functionizecli'
+              sh 'ls -al /opt/functionizecli'
+              sh 'cd /opt/functionizecli && npm install'
+              sh 'cd /opt/functionizecli && npm install -g'
+              sh 'cd /opt/functionizecli && ls -al'
               // sh 'mv config-sample.js config.js'
               // sh 'source ~/.bash_profile'
               // sh 'echo "alias functionize-cli=\'node /opt/functionizecli/functionize.js\'" >> ~/.bash_profile'
