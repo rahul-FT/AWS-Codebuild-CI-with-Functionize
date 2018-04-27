@@ -62,6 +62,7 @@ pipeline {
               sh 'echo "Running Orchestrations"'
               sh 'export DEPLOYMENT_ID=6868c7a2bf517501f4ecf65f5d5a84dc'
               sh 'echo $DEPLOYMENT_ID'
+              sh '/usr/local/bin/functionize run-deployment --depID $DEPLOYMENT_ID'
               // sh 'wget -O - https://bitbucket.org/functionize/functionizecli/raw/master/ThirdParty_run.sh | bash'
             }
         }
