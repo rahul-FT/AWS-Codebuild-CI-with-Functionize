@@ -51,13 +51,14 @@ pipeline {
               }
           }
             steps {
+              sh 'rm -rf functionizecli'
               sh 'git clone https://functionize@bitbucket.org/functionize/functionizecli.git'
               sh 'cd functionizecli && npm install'
               sh 'cd functionizecli && npm install -g'
               sh 'cd functionizecli && ls -al'
               sh 'pwd'
-              // sh 'cd functionizecli && mv config-sample.js config.js'
-              // sh 'cd /functionizecli echo "alias functionize-cli=\'node /opt/functionizecli/functionize.js\'" >> ~/.bash_profile'
+              sh 'cd functionizecli && mv config-sample.js config.js'
+              // sh 'cd functionizecli echo "alias functionize-cli=\'node /opt/functionizecli/functionize.js\'" >> ~/.bash_profile'
               // sh 'source ~/.bash_profile'
               // sh 'functionize-cli'
               // sh 'sed -i \'s/"xxxxxxxxxx"/"9dd73eb3e026a06c809eaa09cd51fdb5"/g\' config.js'
