@@ -4,8 +4,8 @@ pipeline {
         stage('lint-css') {
           agent {
               docker {
-                image 'maven:3-alpine'
-                args  '-v /tmp:/tmp'
+                image 'node:9.11.1'
+                args  '--privileged'
               }
           }
             steps {
@@ -13,7 +13,7 @@ pipeline {
                 sh 'node --version'
                 sh 'npm --version'
                 sh 'yarn version'
-                // sh './node_modules/gulp/bin/gulp.js lint-css'
+                sh './node_modules/gulp/bin/gulp.js lint-css'
             }
         }
     }
