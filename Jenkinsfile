@@ -53,6 +53,7 @@ pipeline {
             steps {
               sh 'git clone https://functionize@bitbucket.org/functionize/functionizecli.git /opt/functionizecli'
               sh 'cd /opt/functionizecli'
+              sh 'ls -al'
               sh 'npm install'
               sh 'npm install -g'
               sh 'ls -al'
