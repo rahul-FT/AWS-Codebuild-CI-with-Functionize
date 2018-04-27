@@ -53,6 +53,8 @@ pipeline {
               sh 'cd functionizecli && sed -i \'s/"xxxxxxxxxx"/"6444c1a2469d7dc61bd8a3f31f703653"/g\' config.js'
               sh 'cd functionizecli && sed -i \'s/"xxxxxx"/"1588e875c1e34df941091f393251fa26"/g\' config.js'
               sh 'echo "Running Orchestrations"'
+              sh 'export DEPLOYMENT_ID=b5e27cff23ad2cd07cd5f778e327d0ae'
+              sh 'echo $DEPLOYMENT_ID'
               sh 'export DEPLOYMENT_ID=b5e27cff23ad2cd07cd5f778e327d0ae && wget -O - https://bitbucket.org/functionize/functionizecli/raw/master/ThirdParty_run.sh | bash'
             }
         }
