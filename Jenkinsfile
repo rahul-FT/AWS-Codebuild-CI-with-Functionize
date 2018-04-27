@@ -5,7 +5,7 @@ pipeline {
           agent {
               docker {
                 image 'node:9.11.1'
-                args  '- root'
+                args  '-u root'
               }
           }
             steps {
