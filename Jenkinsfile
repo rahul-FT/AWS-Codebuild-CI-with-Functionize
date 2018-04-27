@@ -55,6 +55,7 @@ pipeline {
               sh 'cd /opt/functionizecli'
               sh 'npm install'
               sh 'npm install -g'
+              sh 'ls -al'
               sh 'mv config-sample.js config.js'
               sh 'source ~/.bash_profile'
               sh 'echo "alias functionize-cli=\'node /opt/functionizecli/functionize.js\'" >> ~/.bash_profile'
