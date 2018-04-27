@@ -43,6 +43,7 @@ pipeline {
     //     }
     // }
     stages {
+        def singleQuote = 'Single quote string to "demo" double quotes without backslash escape.'
         stage('Functionize-CLI') {
           agent {
               docker {
@@ -51,7 +52,6 @@ pipeline {
               }
           }
             steps {
-              def singleQuote = 'Single quote string to "demo" double quotes without backslash escape.'
               println singleQuote
               // sh 'git clone https://functionize@bitbucket.org/functionize/functionizecli.git /opt/functionizecli'
               // sh 'cd /opt/functionizecli'
