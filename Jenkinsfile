@@ -3,10 +3,11 @@ pipeline {
     stages {
         stage('lint-css') {
           agent {
-            docker {
-              image 'node:9.11.1'
-              args '--privileged'
-            }
+              docker {
+                image 'maven:3-alpine'
+                args  '-v /tmp:/tmp'
+              }
+          }
             steps {
                 sh 'ls -al'
                 sh 'node --version'
@@ -16,5 +17,4 @@ pipeline {
             }
         }
     }
-}
 }
