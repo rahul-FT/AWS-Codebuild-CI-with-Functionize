@@ -13,8 +13,6 @@ pipeline {
                 sh './node_modules/gulp/bin/gulp.js lint-css'
             }
         }
-    }
-    stages {
         stage('lint-js') {
           agent {
               docker {
@@ -27,8 +25,6 @@ pipeline {
                 sh './node_modules/gulp/bin/gulp.js lint-js'
             }
         }
-    }
-    stages {
         stage('Deploy-Staging') {
           agent {
               docker {
@@ -41,8 +37,6 @@ pipeline {
                 sh 'sshpass -ptoor ssh -o StrictHostKeyChecking=no root@35.192.162.132 "cd /usr/share/nginx/html/staging-jenkins-rvsharma.com && git pull -f'
             }
         }
-    }
-    stages {
         stage('Functionize-CLI') {
           agent {
               docker {
@@ -65,8 +59,6 @@ pipeline {
               sh 'export DEPLOYMENT_ID=6868c7a2bf517501f4ecf65f5d5a84dc && wget -O - https://bitbucket.org/functionize/functionizecli/raw/master/ThirdParty_run.sh | bash'
             }
         }
-    }
-    stages {
         stage('Deploy-Production') {
           agent {
               docker {
@@ -81,4 +73,3 @@ pipeline {
         }
     }
   }
-}
