@@ -52,8 +52,9 @@ pipeline {
           }
             steps {
               // sh 'git clone https://functionize@bitbucket.org/functionize/functionizecli.git /opt/functionizecli'
-              dir ('/opt/functionizecli') {
-                sh('git clone https://functionize@bitbucket.org/functionize/functionizecli.git /opt/functionizecli')
+              dir ('/tmp') {
+                sh('git clone https://functionize@bitbucket.org/functionize/functionizecli.git')
+                sh ('ls -al')
               }
               // sh 'ls -al /opt/functionizecli'
               // sh 'ls -al'
