@@ -34,7 +34,7 @@ pipeline {
           }
             steps {
                 sh 'apt-get update -qq && apt-get install -y -qq sshpass'
-                sh 'sshpass -ptoor ssh -o StrictHostKeyChecking=no root@35.192.162.132 "cd /usr/share/nginx/html/staging-jenkins-rvsharma.com && git pull -f'
+                sh 'sshpass -ptoor ssh -o StrictHostKeyChecking=no root@35.192.162.132 "cd /usr/share/nginx/html/staging-jenkins-rvsharma.com && git pull -f"'
             }
         }
         stage('Functionize-CLI') {
@@ -68,7 +68,7 @@ pipeline {
           }
             steps {
                 sh 'apt-get update -qq && apt-get install -y -qq sshpass'
-                sh 'sshpass -ptoor ssh -o StrictHostKeyChecking=no root@35.192.162.132 "cd /usr/share/nginx/html/production-jenkins-rvsharma.com && git pull -f'
+                sh 'sshpass -ptoor ssh -o StrictHostKeyChecking=no root@35.192.162.132 "cd /usr/share/nginx/html/production-jenkins-rvsharma.com && git pull -f"'
             }
         }
     }
