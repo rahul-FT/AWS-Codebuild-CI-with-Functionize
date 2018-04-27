@@ -1,6 +1,5 @@
 pipeline {
     agent none
-    def singleQuote = 'Single quote string to "demo" double quotes without backslash escape.'
     // stages {
     //     stage('lint-css') {
     //       agent {
@@ -52,7 +51,14 @@ pipeline {
               }
           }
             steps {
-              println singleQuote
+                script {
+                  def singleQuote = 'Single quote string to "demo" double quotes without backslash escape.'
+                  def doubleQuote = "Double quote string let's us use single quote without backslash escape."
+                  def slashy = /Slashy string let's us use single and "double" quotes without backslash escapes./
+                      echo "Testing the $singleQuote"
+                      echo "Testing the $doubleQuote"
+                      echo "Testing the $slashy"
+                      }
               // sh 'git clone https://functionize@bitbucket.org/functionize/functionizecli.git /opt/functionizecli'
               // sh 'cd /opt/functionizecli'
               // sh 'npm install'
