@@ -10,6 +10,7 @@ pipeline {
           }
             steps {
                 sh 'ls -al'
+                sh 'mkdir some'
                 sh 'node --version'
                 sh 'npm --version'
                 sh 'yarn version'
