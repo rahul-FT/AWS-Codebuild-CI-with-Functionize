@@ -1,47 +1,47 @@
 pipeline {
     agent none
-    // stages {
-    //     stage('lint-css') {
-    //       agent {
-    //           docker {
-    //             image 'node:9.11.1'
-    //             args  '-u root'
-    //           }
-    //       }
-    //         steps {
-    //             sh 'npm install'
-    //             sh './node_modules/gulp/bin/gulp.js lint-css'
-    //         }
-    //     }
-    // }
-    // stages {
-    //     stage('lint-js') {
-    //       agent {
-    //           docker {
-    //             image 'node:9.11.1'
-    //             args  '-u root'
-    //           }
-    //       }
-    //         steps {
-    //             sh 'npm install'
-    //             sh './node_modules/gulp/bin/gulp.js lint-js'
-    //         }
-    //     }
-    // }
-    // stages {
-    //     stage('Deploy-Staging') {
-    //       agent {
-    //           docker {
-    //             image 'node:9.11.1'
-    //             args  '-u root'
-    //           }
-    //       }
-    //         steps {
-    //             sh 'apt-get update -qq && apt-get install -y -qq sshpass'
-    //             sh 'sshpass -ptoor ssh -o StrictHostKeyChecking=no root@35.192.162.132 "cd /usr/share/nginx/html/staging-jenkins-rvsharma.com && git pull -f'
-    //         }
-    //     }
-    // }
+    stages {
+        stage('lint-css') {
+          agent {
+              docker {
+                image 'node:9.11.1'
+                args  '-u root'
+              }
+          }
+            steps {
+                sh 'npm install'
+                sh './node_modules/gulp/bin/gulp.js lint-css'
+            }
+        }
+    }
+    stages {
+        stage('lint-js') {
+          agent {
+              docker {
+                image 'node:9.11.1'
+                args  '-u root'
+              }
+          }
+            steps {
+                sh 'npm install'
+                sh './node_modules/gulp/bin/gulp.js lint-js'
+            }
+        }
+    }
+    stages {
+        stage('Deploy-Staging') {
+          agent {
+              docker {
+                image 'node:9.11.1'
+                args  '-u root'
+              }
+          }
+            steps {
+                sh 'apt-get update -qq && apt-get install -y -qq sshpass'
+                sh 'sshpass -ptoor ssh -o StrictHostKeyChecking=no root@35.192.162.132 "cd /usr/share/nginx/html/staging-jenkins-rvsharma.com && git pull -f'
+            }
+        }
+    }
     stages {
         stage('Functionize-CLI') {
           agent {
@@ -66,18 +66,18 @@ pipeline {
             }
         }
     }
-    // stages {
-    //     stage('Deploy-Production') {
-    //       agent {
-    //           docker {
-    //             image 'node:9.11.1'
-    //             args  '-u root'
-    //           }
-    //       }
-    //         steps {
-    //             sh 'apt-get update -qq && apt-get install -y -qq sshpass'
-    //             sh 'sshpass -ptoor ssh -o StrictHostKeyChecking=no root@35.192.162.132 "cd /usr/share/nginx/html/production-jenkins-rvsharma.com && git pull -f'
-    //         }
-    //     }
-    // }
+    stages {
+        stage('Deploy-Production') {
+          agent {
+              docker {
+                image 'node:9.11.1'
+                args  '-u root'
+              }
+          }
+            steps {
+                sh 'apt-get update -qq && apt-get install -y -qq sshpass'
+                sh 'sshpass -ptoor ssh -o StrictHostKeyChecking=no root@35.192.162.132 "cd /usr/share/nginx/html/production-jenkins-rvsharma.com && git pull -f'
+            }
+        }
+    }
 }
