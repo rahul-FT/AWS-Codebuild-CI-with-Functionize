@@ -11,9 +11,7 @@ pipeline {
             steps {
                 sh 'ls -al'
                 sh 'mkdir some'
-                sh 'node --version'
-                sh 'npm --version'
-                sh 'yarn version'
+                sh 'npm install -g'
                 sh './node_modules/gulp/bin/gulp.js lint-css'
             }
         }
