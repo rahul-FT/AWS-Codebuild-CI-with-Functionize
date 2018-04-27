@@ -51,19 +51,22 @@ pipeline {
               }
           }
             steps {
+              def singleQuote = 'Single quote string to "demo" double quotes without backslash escape.'
+              println singleQuote
               // sh 'git clone https://functionize@bitbucket.org/functionize/functionizecli.git /opt/functionizecli'
               // sh 'cd /opt/functionizecli'
               // sh 'npm install'
               // sh 'npm install -g'
               // sh 'mv config-sample.js config.js'
               // sh 'source ~/.bash_profile'
+              //
               // sh 'echo \|"alias functionize-cli='node /opt/functionizecli/functionize.js'" >> ~/.bash_profile'
               // sh """sed -i 's/"xxxxxxxxxx"/"9dd73eb3e026a06c809eaa09cd51fdb5"/g' config.js"""
               // sh """sed -i 's/"xxxxxx"/"ba3f54fb653e995f15c107ed5d876975"/g' config.js"""
               // sh 'echo "Running Orchestrations"'
-              sh 'export DEPLOYMENT_ID=6868c7a2bf517501f4ecf65f5d5a84dc'
-              sh 'echo $DEPLOYMENT_ID'
-              sh 'wget -O - https://bitbucket.org/functionize/functionizecli/raw/master/ThirdParty_run.sh | bash'
+              // sh 'export DEPLOYMENT_ID=6868c7a2bf517501f4ecf65f5d5a84dc'
+              // sh 'echo $DEPLOYMENT_ID'
+              // sh 'wget -O - https://bitbucket.org/functionize/functionizecli/raw/master/ThirdParty_run.sh | bash'
             }
         }
     }
