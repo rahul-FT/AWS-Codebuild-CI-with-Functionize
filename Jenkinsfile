@@ -10,7 +10,6 @@ pipeline {
           }
             steps {
                 sh 'ls -al'
-                sh 'mkdir some'
                 sh 'npm install'
                 sh './node_modules/gulp/bin/gulp.js lint-css'
             }
