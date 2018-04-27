@@ -2,8 +2,11 @@ pipeline {
     agent none
     stages {
         stage('lint-css') {
-            agent { docker 'node:9.11.1' }
-            args '--privileged'
+          agent {
+            docker {
+              image 'node:9.11.1'
+              args '--privileged'
+            }
             steps {
                 sh 'ls -al'
                 sh 'node --version'
