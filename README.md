@@ -1,6 +1,6 @@
 <h1 align="center">
   <br>
-   <img src="https://fnizeprod.wpengine.com/wp-content/uploads/2017/11/logo.png"/>
+   <img src="https://app.functionize.com/views/images/logo/logo-small.png"/>
   <br>
 </h1>
 <p align="center">
