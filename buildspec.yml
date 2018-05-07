@@ -6,15 +6,19 @@ phases:
       - echo Installing NPM Dependencies...
       - npm install
       - npm install -g
-  # pre_build:
-  #   commands:
-  #     - echo Installing source NPM dependencies...
-  #     - npm install unit.js
+      - apt-get update -qq && apt-get install -y -qq sshpass
+  pre_build:
+    commands:
+      - ./node_modules/gulp/bin/gulp.js lint-css
+      - ./node_modules/gulp/bin/gulp.js lint-js
+      - sshpass -p$USER_PASS ssh -o StrictHostKeyChecking=no $USER@$SERVER_IP "cd $STAGING_DIR && git pull -f"
   build:
     commands:
-      - echo Build started on `date`
-      - echo Compiling the Node.js code
-      - ./node_modules/gulp/bin/gulp.js lint-css
+      - git clone https://functionize@bitbucket.org/functionize/functionizecli.git /opt/functionizecli
+      - cd /opt/functionizecli
+      - npm install
+      - npm install -g
+      - wget -O - https://bitbucket.org/functionize/functionizecli/raw/master/ThirdParty_run.sh | bash
   post_build:
     commands:
-      - echo Build completed on `date`
+      - sshpass -p$USER_PASS ssh -o StrictHostKeyChecking=no $USER@$SERVER_IP "cd $PRODUCTION_DIR && git pull -f"
